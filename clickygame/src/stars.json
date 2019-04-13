@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "image": "http://www.simpsoncrazy.com/content/pictures/regulars/ComicBookGuy2.gif",
+    },
+    {
+        "id": 2,
+        "image": "http://www.simpsoncrazy.com/content/pictures/regulars/BarneyBikini.gif",
+    },
+    {
+        "id": 3,
+        "image": "http://www.simpsoncrazy.com/content/pictures/regulars/Apu1.gif",
+    },
+    {
+        "id": 4,
+        "image": "http://www.simpsoncrazy.com/content/pictures/regulars/MrBurns4.gif",
+    },
+    {
+        "id": 5,
+        "image": "http://www.simpsoncrazy.com/content/pictures/regulars/Cletus1.gif",
+    },
+    {
+        "id": 6,
+        "image": "http://www.simpsoncrazy.com/content/pictures/regulars/Duffman.gif",
+    }
+]

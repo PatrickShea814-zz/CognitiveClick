@@ -8,6 +8,7 @@ import Container from "./Container";
 import Row from "./Row";
 import Column from "./Column";
 import characters from "./characters.json";
+import stars from "./stars.json";
 import './App.css';
 
 function shuffleCharacters(arr) {
@@ -22,9 +23,10 @@ class App extends Component {
   // Set this.state
   state = {
     characters,
+    stars,
+    wantedLevel: 0,
     currentScore: 0,
-    stars:
-      highScore: 0,
+    highScore: 0,
     rightWrong: '',
     clicked: [],
   };
@@ -33,9 +35,19 @@ class App extends Component {
     if (this.state.clicked.indexOf(id) === -1) {
       this.handleIncrement();
       this.setState({ clicked: this.state.clicked.concat(id) });
+    } else if (this.state.wantedLevel < 7) {
+      this.handleWantedLevel();
     } else {
       this.handleReset();
     }
+  };
+
+  handleWantedLevel = () => {
+    const newWantedLevel = this.state.wantedLevel + 1;
+    this.setState({
+      wantedLevel: newWantedLevel,
+      rightWrong: 'Wanted Level Increased!'
+    });
   };
 
   handleIncrement = () => {
@@ -47,7 +59,7 @@ class App extends Component {
     if (newScore >= this.state.highScore) {
       this.setState({ highScore: newScore });
     } else if (newScore === 12) {
-      this.setState({ rightWrong: 'Congratulations! You have won!' });
+      this.setState({ rightWrong: 'Clean job. You escaped! Enjoy your freedom.' });
     } else {
       this.handleShuffle();
     }
@@ -63,7 +75,8 @@ class App extends Component {
       currentScore: 0,
       highScore: this.state.highScore,
       rightWrong: 'WASTED!',
-      clicked: []
+      clicked: [],
+      wantedLevel: 0
     });
     this.handleShuffle();
   }
@@ -94,7 +107,7 @@ class App extends Component {
 
         <Container>
           <Row>
-            {this.state.characters.map(friend => (
+            {this.state.characters.map(character => (
               <Column size="col-lg-3 col-md-3 col-sm-6">
                 <CharacterCard
                   key={characters.id}
@@ -109,7 +122,7 @@ class App extends Component {
             ))}
           </Row>
         </Container>
-      </Wrapper >
+      </Wrapper>
     );
   }
 }
