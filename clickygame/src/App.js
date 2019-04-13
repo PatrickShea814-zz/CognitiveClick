@@ -58,7 +58,7 @@ class App extends Component {
     });
     if (newScore >= this.state.highScore) {
       this.setState({ highScore: newScore });
-    } else if (newScore === 12) {
+    } else if (newScore === 10) {
       this.setState({ rightWrong: 'Clean job. You escaped! Enjoy your freedom.' });
     } else {
       this.handleShuffle();
@@ -95,7 +95,9 @@ class App extends Component {
           <Row>
             <Column size="col-lg-3 col-md-3 col-sm-6">
               <StarCard
-
+                key={stars.id}
+                id={stars.id}
+                img={stars.image}
               />
             </Column>
           </Row>
