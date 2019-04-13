@@ -18,14 +18,13 @@ function shuffleCharacters(arr) {
   return arr;
 }
 
-
-
 class App extends Component {
   // Set this.state
   state = {
     characters,
     currentScore: 0,
-    highScore: 0,
+    stars:
+      highScore: 0,
     rightWrong: '',
     clicked: [],
   };
@@ -79,8 +78,17 @@ class App extends Component {
           rightWrong={this.state.rightWrong}
         />
 
+        <Container>
+          <Row>
+            <Column size="col-lg-3 col-md-3 col-sm-6">
+              <StarCard
+
+              />
+            </Column>
+          </Row>
+        </Container>
         <Title>
-          Take out" each character without making the same hit twice or you'll earn another star!.
+          Take out each character without making the same hit twice or increase your wanted level!.
         </Title>
 
 
@@ -101,7 +109,7 @@ class App extends Component {
             ))}
           </Row>
         </Container>
-      </Wrapper>
+      </Wrapper >
     );
   }
 }
