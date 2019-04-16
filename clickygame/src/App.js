@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import CharacterCard from "./components/CharacterCard";
+import StarCard from "./components/StarCard";
 import Navbar from "./components/Navbar";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
@@ -12,7 +13,7 @@ import stars from "./stars.json";
 import './App.css';
 
 function shuffleCharacters(arr) {
-  for (let i = array.length - 1; i > 0; i--) {
+  for (let i = arr.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
@@ -59,7 +60,7 @@ class App extends Component {
     if (newScore >= this.state.highScore) {
       this.setState({ highScore: newScore });
     } else if (newScore === 10) {
-      this.setState({ rightWrong: 'Clean job. You escaped! Enjoy your freedom.' });
+      this.setState({ rightWrong: 'That was close. You escaped! Enjoy your freedom.' });
     } else {
       this.handleShuffle();
     }
@@ -85,7 +86,7 @@ class App extends Component {
     return (
       <Wrapper>
         <Navbar
-          title="Grand Theft Auto Clicky Game"
+          title="Grand Theft Auto"
           score={this.state.currentScore}
           highScore={this.state.highScore}
           rightWrong={this.state.rightWrong}
@@ -97,6 +98,8 @@ class App extends Component {
               <StarCard
                 key={stars.id}
                 id={stars.id}
+                handleWantedLevel={this.handleWantedLevel}
+                handleReset={this.handleReset}
                 img={stars.image}
               />
             </Column>
@@ -109,7 +112,7 @@ class App extends Component {
 
         <Container>
           <Row>
-            {this.state.characters.map(character => (
+            {this.state.characters.map(characters => (
               <Column size="col-lg-3 col-md-3 col-sm-6">
                 <CharacterCard
                   key={characters.id}

@@ -1,12 +1,11 @@
 
 import React from "react";
-import "./CharacterCard.css";
+import "./StarCard.css";
 
-const CharacterCard = props => (
+const StarCard = props => (
     <div
         className="card"
         value={props.id}
-        onClick={() => props.handleClick(props.id)}
     >
         <div className="img-container">
             <img alt={props.name} src={props.image} />
@@ -14,4 +13,4 @@ const CharacterCard = props => (
     </div>
 );
 
-export default CharacterCard;
+export default StarCard;
